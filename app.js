@@ -16,7 +16,9 @@ var commentRoutes    = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes      = require("./routes/index");
 
-mongoose.connect("mongodb://localhost/yelp_camp"); //create yelp_camp DB and connect to it
+// mongoose.connect("mongodb://localhost/yelp_camp"); //create LOCAL yelp_camp DB and connect to it
+mongoose.connect("mongodb://goonerDp:hfdDFs83fdsf@ds157621.mlab.com:57621/yelpcamp")
+
 app.set("view engine", "ejs");
 app.use(methodOverride("_method")); // for adding PUT & DELETE methods
 app.use(bodyParser.urlencoded({extended: true}));

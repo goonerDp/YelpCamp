@@ -16,9 +16,8 @@ var commentRoutes    = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes      = require("./routes/index");
 
-
-mongoose.connect(process.env.DATABASEURL); // set up enviroment varible for local version of DB
-// mongoose.connect("mongodb://localhost/yelp_camp"); //create LOCAL yelp_camp DB and connect to it
+var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp"; // set up enviroment varible for DB and backup to local version of DB
+mongoose.connect(url); 
 // mongoose.connect("mongodb://goonerDp:hfdDFs83fdsf@ds157621.mlab.com:57621/yelpcamp") // DB for heroku
 
 app.set("view engine", "ejs");

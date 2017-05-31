@@ -2,7 +2,7 @@
 <div class="container">
     <div class="row">
         <h1 style="text-align: center;">Edit Comment</h1>
-        <div style="width: 30%; margin: 25px auto;">
+        <div class="form-wrapper">
             <form method="POST" action="/campgrounds/<%= campground_id %>/comments/<%= comment._id %>?_method=PUT">
                 <div class="form-group">
                     <input type="text" value="<%= comment.text %>" name="comment[text]" class="form-control">

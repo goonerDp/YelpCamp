@@ -10,3 +10,22 @@
 .delete-form {
     display: inline-block;
 }
+
+.form-wrapper {
+    width: 30%;
+    margin: 25px auto;
+}
+
+.glyphicon.glyphicon-tent {
+    top: 0;
+    margin-right: 10px;
+    vertical-align: top;
+}
+
+
+@media screen and (max-width: 480px) {
+    .form-wrapper {
+        width: 75%;
+    }
+}
+

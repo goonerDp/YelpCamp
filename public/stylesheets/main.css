@@ -47,6 +47,10 @@ body {
     vertical-align: top;
 }
 
+.loggedUser {
+    text-decoration: underline;
+    font-style: italic;
+}
 
 /* Google Maps */
 #map {

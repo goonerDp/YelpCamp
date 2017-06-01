@@ -21,6 +21,10 @@ router.get("/register", function(req, res) {
 //sign up logic
 router.post("/register", function(req, res) {
     var newUser = new User({username: req.body.username});
+    //admin role logic
+    if(req.body.adminCode === "verysecretcode") {
+        newUser.isAdmin = true;
+    }
     User.register(newUser, req.body.password, function(err, user) {
       if(err) {
          req.flash("error", err.message);

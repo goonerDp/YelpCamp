@@ -101,10 +101,11 @@ router.put("/:id", middleware.checkCampgroundOwnership, function(req, res) {
 
 // DELETE
 router.delete("/:id", middleware.checkCampgroundOwnership, function(req, res) {
-    Campground.findByIdAndRemove(req.params.id, function(err) {
+    Campground.findByIdAndRemove(req.params.id, function(err, deletedCampground) {
        if(err) {
            res.redirect("/campgrounds");
        } else {
+           req.flash("error", deletedCampground.name + " is deleted!");
            res.redirect("/campgrounds");
        }
     });

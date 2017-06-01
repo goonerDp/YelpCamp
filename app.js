@@ -1,15 +1,15 @@
-var express         = require("express"),
-    app             = express(),
-    bodyParser      = require("body-parser"),
-    mongoose        = require("mongoose"),
-    flash           = require("connect-flash"),
-    passport        = require("passport"),
-    LocalStrategy   = require("passport-local"),
-    methodOverride  = require("method-override"),
-    Campground      = require("./models/campground"),
-    Comment         = require("./models/comment"),
-    User            = require("./models/user"),
-    seedDB          = require("./seeds");
+var express             = require("express"),
+    app                 = express(),
+    bodyParser          = require("body-parser"),
+    mongoose            = require("mongoose"),
+    flash               = require("connect-flash"),
+    passport            = require("passport"),
+    LocalStrategy       = require("passport-local"),
+    methodOverride      = require("method-override"),
+    Campground          = require("./models/campground"),
+    Comment             = require("./models/comment"),
+    User                = require("./models/user"),
+    seedDB              = require("./seeds");
     
 // requiring routes
 var commentRoutes    = require("./routes/comments"),
@@ -26,6 +26,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public")); // plug in custom styles and scripts
 //seedDB(); //create campgrounds and comments
 app.use(flash()); // flash messages
+
+app.locals.moment = require("moment"); //Now moment is available for use in all of view files via the variable named moment
 
 // PASSPORT CONFIGURATION
 app.use(require("express-session")({
